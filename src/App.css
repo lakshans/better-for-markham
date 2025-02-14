@@ -1,3 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: 0 0% 100%;
+  --background: 222.2 84% 4.9%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Add any additional custom styles here */
+
+.hero {
+  background-image: url('/canada-flag.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Header background on scroll */
+header {
+  background: transparent;
+}
+
+header.scrolled {
+  @apply bg-background/95 backdrop-blur-sm border-b;
+}
+
+/* Transitions */
+.card {
+  @apply transition-all duration-300 hover:shadow-lg;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply tracking-tight;
+}
+
+/* Container width */
+.container {
+  @apply px-4 mx-auto max-w-7xl;
+}
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -75,9 +128,12 @@ body {
 /* Hero section */
 .hero-section {
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('/hero-bg.jpg') no-repeat center center;
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.6) 100%),
+    url('/canada-flag.jpg') no-repeat center center;
   background-size: cover;
+  background-attachment: fixed; /* This creates a parallax effect */
   display: flex;
   align-items: center;
   padding: 0 2rem;
@@ -340,4 +396,46 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 8rem;
+}
+
+@layer base {
+  :root {
+    --card-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
+    --card-shadow-hover: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer components {
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose p {
+    @apply text-gray-600 leading-relaxed;
+  }
+}
+
+/* Smooth transitions */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-800;
 }
