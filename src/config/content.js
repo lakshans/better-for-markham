@@ -8,7 +8,7 @@ export const siteContent = {
   ],
   hero: {
     title: {
-      prefix: "Leadership for",
+      prefix: "Leader for",
       highlight: "Markham-Unionville"
     },
     quote: "Fighting for a more affordable, fair, and thriving Markham — because you deserve more.",
