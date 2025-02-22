@@ -3,7 +3,6 @@ export const siteContent = {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'platform', label: 'Platform' },
-    { id: 'updates', label: 'Updates' },
     { id: 'contact', label: 'Contact' },
   ],
   hero: {

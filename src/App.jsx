@@ -7,7 +7,7 @@ import { Separator } from "./components/ui/separator"
 import { siteContent } from './config/content'
 
 function App() {
-  const { navigation, hero, notification, keyTopics, about, platform, updates, contact } = siteContent
+  const { navigation, hero, notification, keyTopics, about, platform, contact } = siteContent
   const [activeSection, setActiveSection] = useState('home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -31,8 +31,8 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'platform', 'updates', 'contact']
-      const scrollPosition = window.scrollY + 100 // Add offset for better detection
+      const sections = ['home', 'about', 'platform', 'contact']
+      const scrollPosition = window.scrollY + 100
 
       sections.forEach(section => {
         const element = document.getElementById(section)
@@ -56,12 +56,19 @@ function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#651C32]/85 backdrop-blur-sm border-b border-[#CBC4BC]/20">
         <div className="container mx-auto px-4 md:px-8 lg:px-24 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4 md:gap-8">
-            <span 
-              onClick={() => scrollToSection('home')}
-              className="text-xl md:text-3xl font-tinos font-bold text-white tracking-tight hover:scale-105 transition-transform duration-200 leading-relaxed drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)] cursor-pointer"
-            >
-              Jagbir Dosanjh
-            </span>
+            <div className="flex items-center gap-2 md:gap-3">
+              <img 
+                src="/ontario-flag.jpg" 
+                alt="Ontario Flag" 
+                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              />
+              <span 
+                onClick={() => scrollToSection('home')}
+                className="text-xl md:text-3xl font-tinos font-bold text-white tracking-tight hover:scale-105 transition-transform duration-200 leading-relaxed drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)] cursor-pointer"
+              >
+                Jagbir Dosanjh
+              </span>
+            </div>
             <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 bg-amber-500/90 rounded-full border border-amber-400/50 shadow-lg shadow-amber-500/20">
               <span className="text-xs md:text-sm font-medium text-[#382F2D]">
                 {notification.text}
@@ -187,89 +194,80 @@ function App() {
                 <h3 className="text-base font-semibold text-white/90 mb-2 text-center">{keyTopics.title}</h3>
                 
                 {/* Debate Card */}
-                <button
-                  onClick={() => scrollToSection('debate')}
-                  className="w-full group flex items-center gap-3 p-3.5 rounded-xl bg-amber-500/90 hover:bg-amber-500 transition-all duration-200 text-center border border-amber-400 shadow-lg shadow-amber-500/20"
-                >
-                  <span className="text-xl">{keyTopics.debate.icon}</span>
-                  <div className="flex-1">
-                    <h4 className="text-[#382F2D] font-semibold text-sm">
-                      {keyTopics.debate.title}
-                    </h4>
-                  </div>
-                  <span className="text-[#382F2D]/70">→</span>
-                </button>
+                <div className="w-full group flex flex-col p-4 rounded-xl bg-yellow-400 border border-yellow-500 shadow-lg">
+                  <h4 className="text-black font-bold text-lg mb-2">LIBERAL vs CONSERVATIVE DEBATE</h4>
+                  <p className="text-black font-medium mb-1">TUESDAY FEB 25, 2025 - 6-8PM</p>
+                  <p className="text-black mb-1">ANGUS GLEN LIBRARY</p>
+                  <p className="text-black mb-2">ROOM G&H</p>
+                  <p className="text-black font-bold text-sm">THE CONSERVATIVE CAMPAIGN HAS BEEN INVITED, BUT WILL THEY SHOW UP?</p>
+                  <p className="text-black font-bold text-sm mt-2">HOW WILL THEY ADVOCATE FOR YOU, IF THEY WON'T EVEN ADVOCATE FOR THEMSELVES?</p>
+                </div>
 
-                {/* Ford Policy Card */}
-                <button
-                  onClick={() => scrollToSection('ford-policies')}
-                  className="w-full group flex items-center gap-3 p-3.5 rounded-xl bg-[#971B2F]/90 hover:bg-[#971B2F] transition-all duration-200 text-center border border-[#971B2F] shadow-lg shadow-[#971B2F]/20"
-                >
-                  <span className="text-xl">{keyTopics.fordPolicies.icon}</span>
-                  <div className="flex-1">
-                    <h4 className="text-white font-semibold text-sm">
-                      {keyTopics.fordPolicies.title}
-                    </h4>
+                {/* Advance Polling Card */}
+                <div className="w-full group flex flex-col p-4 rounded-xl bg-white border border-red-600 shadow-lg">
+                  <h4 className="text-red-600 font-bold text-xl mb-2">ADVANCE POLLING NOW OPEN</h4>
+                  <p className="text-red-600 font-bold mb-4">VOTE FEB 20 - 22</p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2">
+                      <span className="text-red-600 text-xl">📍</span>
+                      <div>
+                        <p className="text-red-600 font-bold">Angus Glen</p>
+                        <p className="text-red-600">Community Centre</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-red-600 text-xl">📍</span>
+                      <div>
+                        <p className="text-red-600 font-bold">Centennial</p>
+                        <p className="text-red-600">Community Centre</p>
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-white/70">→</span>
-                </button>
-
-                {/* View All Updates Button */}
-                <button
-                  onClick={() => scrollToSection('updates')}
-                  className="w-full flex items-center justify-center gap-2 p-3.5 rounded-xl border border-white/20 text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm"
-                >
-                  <span>View All Updates</span>
-                  <span>→</span>
-                </button>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Key Topics Panel */}
-          <div className="hidden lg:block w-80 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl">
-            <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-white/90">{keyTopics.title}</h3>
-              
-              {/* Debate Button */}
-              <button
-                onClick={() => scrollToSection('debate')}
-                className="w-full group flex items-start gap-3 p-3 rounded-xl bg-amber-500/90 hover:bg-amber-500 transition-all duration-200 text-left border border-amber-400 shadow-lg shadow-amber-500/20"
-              >
-                <span className="text-2xl">{keyTopics.debate.icon}</span>
-                <div>
-                  <h4 className="text-[#382F2D] font-semibold">
-                    {keyTopics.debate.title}
-                  </h4>
-                </div>
-              </button>
-
-              {/* Ford Policy Button */}
-              <button
-                onClick={() => scrollToSection('ford-policies')}
-                className="w-full group flex items-start gap-3 p-3 rounded-xl bg-[#971B2F]/90 hover:bg-[#971B2F] transition-all duration-200 text-left border border-[#971B2F] shadow-lg shadow-[#971B2F]/20"
-              >
-                <span className="text-2xl">{keyTopics.fordPolicies.icon}</span>
-                <div>
-                  <h4 className="text-white font-semibold">
-                    {keyTopics.fordPolicies.title}
-                  </h4>
-                  <p className="text-sm text-white/80">
-                    {keyTopics.fordPolicies.description}
-                  </p>
-                </div>
-              </button>
-
-              <div className="pt-2">
-                <Button
-                  variant="outline"
-                  onClick={() => scrollToSection('updates')}
-                  className="w-full text-white/80 hover:text-white border-white/20 hover:bg-white/10 rounded-xl"
-                >
-                  View All Updates →
-                </Button>
-              </div>
+          {/* Desktop Key Topics Panel */}
+          <div className="hidden lg:block w-[40rem] space-y-4">
+            {/* Debate Card */}
+            <div className="w-full bg-yellow-400 rounded-2xl p-8 border border-yellow-500 shadow-xl text-center">
+              <h4 className="text-black font-bold text-3xl mb-3 whitespace-nowrap">LIBERAL vs CONSERVATIVE DEBATE</h4>
+              <p className="text-black font-medium text-xl mb-1">TUESDAY FEB 25, 2025 - 6-8PM</p>
+              <p className="text-black text-lg mb-1">ANGUS GLEN LIBRARY</p>
+              <p className="text-black text-lg mb-4">ROOM G&H</p>
+              <p className="text-black font-bold text-lg">THE CONSERVATIVE CAMPAIGN HAS BEEN INVITED, BUT WILL THEY SHOW UP?</p>
+              <p className="text-black font-bold text-lg mt-2">HOW WILL THEY ADVOCATE FOR YOU, IF THEY WON'T EVEN ADVOCATE FOR THEMSELVES?</p>
             </div>
+
+            {/* Advance Polling Card */}
+            <a 
+              href="https://voterinformationservice.elections.on.ca/en/election/10/58?tab=beforeElectionInPerson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full hover:scale-[1.02] transition-transform duration-200"
+            >
+              <div className="w-full bg-white rounded-2xl p-8 border border-red-600 shadow-xl text-center">
+                <h4 className="text-red-600 font-bold text-3xl mb-2">ADVANCE POLLING NOW OPEN</h4>
+                <p className="text-red-600 font-bold text-2xl mb-4">VOTE FEB 20 - 22</p>
+                <div className="space-y-4 inline-block">
+                  <div className="flex items-center gap-4 text-left">
+                    <span className="text-red-600 text-3xl">📍</span>
+                    <div>
+                      <p className="text-red-600 font-bold text-xl">Angus Glen</p>
+                      <p className="text-red-600 text-xl">Community Centre</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 text-left">
+                    <span className="text-red-600 text-3xl">📍</span>
+                    <div>
+                      <p className="text-red-600 font-bold text-xl">Centennial</p>
+                      <p className="text-red-600 text-xl">Community Centre</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -326,55 +324,6 @@ function App() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Updates Section */}
-      <section id="updates" className="min-h-screen py-16 md:py-32 bg-[#CBC4BC]">
-        <div className="container mx-auto px-4 md:px-8 lg:px-24">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-20 tracking-tight text-[#382F2D]">
-            {updates.title}
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-4 md:space-y-6">
-            <Card id="debate" className="group hover:shadow-xl transition-all duration-300 border-2 border-[#971B2F] bg-white/90 hover:scale-102">
-              <CardHeader>
-                <div className="text-sm text-[#971B2F] font-bold">{updates.debate.tag}</div>
-                <CardTitle className="text-[#651C32] text-2xl">{updates.debate.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <p className="text-[#382F2D]/70 italic">More information coming soon, stay tuned.</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card id="ford-policies" className="group hover:shadow-xl transition-all duration-300 border-2 border-[#971B2F] bg-white/90 hover:scale-102">
-              <CardHeader>
-                <div className="text-sm text-[#971B2F] font-bold">{updates.fordPolicies.tag}</div>
-                <CardTitle className="text-[#651C32] text-2xl">{updates.fordPolicies.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <p className="text-[#382F2D]/80 font-medium">{updates.fordPolicies.intro}</p>
-                  
-                  <div className="space-y-4">
-                    {updates.fordPolicies.bills.map((bill, index) => (
-                      <div key={index} className="border-l-4 border-[#971B2F] pl-4">
-                        <h4 className="font-bold text-[#651C32]">Bill {bill.number}</h4>
-                        <p className="text-[#382F2D]/70">{bill.description}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 p-4 bg-[#971B2F]/10 rounded-lg border border-[#971B2F]/20">
-                    <p className="text-[#651C32] font-semibold">
-                      {updates.fordPolicies.conclusion}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
