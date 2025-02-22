@@ -56,22 +56,22 @@ function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#651C32]/85 backdrop-blur-sm border-b border-[#CBC4BC]/20">
         <div className="container mx-auto px-4 md:px-8 lg:px-24 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4 md:gap-8">
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="flex items-center gap-1 md:gap-3">
               <img 
                 src="/ontario-flag.jpg" 
                 alt="Ontario Flag" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                className="w-7 h-7 md:w-12 md:h-12 object-contain"
               />
               <span 
                 onClick={() => scrollToSection('home')}
-                className="text-xl md:text-3xl font-tinos font-bold text-white tracking-tight hover:scale-105 transition-transform duration-200 leading-relaxed drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)] cursor-pointer"
+                className="text-[15px] md:text-4xl font-tinos font-bold text-white tracking-tight hover:scale-105 transition-transform duration-200 leading-relaxed drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)] cursor-pointer"
               >
                 Jagbir Dosanjh
               </span>
             </div>
-            <div className="flex items-center gap-2 px-3 md:px-4 py-1.5 bg-amber-500/90 rounded-full border border-amber-400/50 shadow-lg shadow-amber-500/20">
-              <span className="text-xs md:text-sm font-medium text-[#382F2D]">
-                {notification.text}
+            <div className="flex items-center gap-1 px-2 md:px-4 py-1 md:py-1.5 bg-amber-500/90 rounded-full border border-amber-400/50 shadow-lg shadow-amber-500/20">
+              <span className="text-[10px] md:text-sm font-medium text-[#382F2D] whitespace-nowrap">
+                Vote on February 27th!
               </span>
             </div>
           </div>
@@ -145,11 +145,11 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen pt-12 md:pt-12 relative flex items-center">
+      <section id="home" className="min-h-screen pt-20 md:pt-12 relative flex items-center">
         <div className="absolute inset-0 bg-[url('/canada-flag.jpg')] bg-cover bg-center opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#651C32]/70 via-[#651C32]/75 to-[#651C32]/90" />
         <div className="container relative z-10 mx-auto px-4 md:px-8 lg:px-24 flex items-center justify-between">
-          <div className="max-w-2xl space-y-4 md:space-y-6 flex flex-col items-center text-left -mt-12 md:-mt-20">
+          <div className="max-w-2xl space-y-4 md:space-y-6 flex flex-col items-center text-left mt-4 md:-mt-20">
             <div className="w-48 h-48 md:w-80 md:h-80 mb-4 md:mb-6 rounded-full overflow-hidden border-4 border-white/20 shadow-xl self-center">
               <img 
                 src="/jagbir-headshot.jpg" 
@@ -203,27 +203,34 @@ function App() {
                   <p className="text-black font-bold text-sm mt-2">HOW WILL THEY ADVOCATE FOR YOU, IF THEY WON'T EVEN ADVOCATE FOR THEMSELVES?</p>
                 </div>
 
-                {/* Advance Polling Card */}
-                <div className="w-full group flex flex-col p-4 rounded-xl bg-white border border-red-600 shadow-lg">
-                  <h4 className="text-red-600 font-bold text-xl mb-2">ADVANCE POLLING NOW OPEN</h4>
-                  <p className="text-red-600 font-bold mb-4">VOTE FEB 20 - 22</p>
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-2">
-                      <span className="text-red-600 text-xl">📍</span>
-                      <div>
-                        <p className="text-red-600 font-bold">Angus Glen</p>
-                        <p className="text-red-600">Community Centre</p>
+                {/* Mobile Advance Polling Card */}
+                <a 
+                  href="https://voterinformationservice.elections.on.ca/en/election/10/58?tab=beforeElectionInPerson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full hover:scale-[1.02] transition-transform duration-200"
+                >
+                  <div className="w-full group flex flex-col p-4 rounded-xl bg-white border border-red-600 shadow-lg text-center">
+                    <h4 className="text-red-600 font-bold text-xl mb-2">ADVANCE POLLING NOW OPEN</h4>
+                    <p className="text-red-600 font-bold mb-4">VOTE FEB 20 - 22</p>
+                    <div className="space-y-2 inline-block">
+                      <div className="flex items-center gap-2">
+                        <span className="text-red-600 text-xl">📍</span>
+                        <div className="text-left">
+                          <p className="text-red-600 font-bold">Angus Glen</p>
+                          <p className="text-red-600">Community Centre</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-red-600 text-xl">📍</span>
-                      <div>
-                        <p className="text-red-600 font-bold">Centennial</p>
-                        <p className="text-red-600">Community Centre</p>
+                      <div className="flex items-center gap-2">
+                        <span className="text-red-600 text-xl">📍</span>
+                        <div className="text-left">
+                          <p className="text-red-600 font-bold">Centennial</p>
+                          <p className="text-red-600">Community Centre</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
