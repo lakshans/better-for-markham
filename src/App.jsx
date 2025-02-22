@@ -191,8 +191,6 @@ function App() {
 
               {/* Mobile Key Topics */}
               <div className="md:hidden space-y-3 mt-8 mb-16">
-                <h3 className="text-base font-semibold text-white/90 mb-2 text-center">{keyTopics.title}</h3>
-                
                 {/* Debate Card */}
                 <div className="w-full group flex flex-col p-4 rounded-xl bg-yellow-400 border border-yellow-500 shadow-lg">
                   <h4 className="text-black font-bold text-lg mb-2">LIBERAL vs CONSERVATIVE DEBATE</h4>
