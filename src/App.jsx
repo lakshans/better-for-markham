@@ -5,9 +5,9 @@ import { Button } from "./components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card"
 import { Separator } from "./components/ui/separator"
 import { siteContent } from './config/content'
-import ReactGA from "react-ga4";
+// import ReactGA from "react-ga4";
 
-ReactGA.initialize("G-DJQFHNHJE5");
+// ReactGA.initialize("G-DJQFHNHJE5");
 
 function App() {
   const { navigation, hero, notification, keyTopics, about, platform, contact } = siteContent
