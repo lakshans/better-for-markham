@@ -16,21 +16,9 @@ function App() {
 
   // Track initial pageview
   useEffect(() => {
-    ReactGA.send({ 
-      hitType: "pageview", 
-      page: "/", 
-      title: "User visited" 
-    });
+    ReactGA.event("page_view");
   }, []);
 
-  // Track section changes
-  useEffect(() => {
-    ReactGA.send({ 
-      hitType: "pageview", 
-      page: `/${activeSection}`, 
-      title: `${activeSection.charAt(0).toUpperCase() + activeSection.slice(1)} - Jagbir Dosanjh for Ontario` 
-    });
-  }, [activeSection]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
