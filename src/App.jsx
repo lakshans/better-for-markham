@@ -5,6 +5,9 @@ import { Button } from "./components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card"
 import { Separator } from "./components/ui/separator"
 import { siteContent } from './config/content'
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-DJQFHNHJE5");
 
 function App() {
   const { navigation, hero, notification, keyTopics, about, platform, contact } = siteContent
@@ -211,12 +214,12 @@ function App() {
                 <div className="md:hidden space-y-3 mt-8 mb-16">
                   {/* Debate Card */}
                   <div id="debate-card" className="w-full group flex flex-col p-4 rounded-xl bg-yellow-400 border border-yellow-500 shadow-lg">
-                    <h4 className="text-black font-bold text-lg mb-2">LIBERAL vs CONSERVATIVE DEBATE</h4>
-                    <p className="text-black font-medium mb-1">TUESDAY FEB 25, 2025 - 6-8PM</p>
-                    <p className="text-black mb-1">ANGUS GLEN LIBRARY</p>
-                    <p className="text-black mb-2">ROOM G&H</p>
-                    <p className="text-black font-bold text-sm">THE CONSERVATIVE CAMPAIGN HAS BEEN INVITED, BUT WILL THEY SHOW UP?</p>
-                    <p className="text-black font-bold text-sm mt-2">HOW WILL THEY ADVOCATE FOR YOU, IF THEY WON'T EVEN ADVOCATE FOR THEMSELVES?</p>
+                    <h4 className="text-black font-bold text-lg mb-4">LIBERAL vs CONSERVATIVE DEBATE</h4>
+                    <p className="text-black font-medium mb-1 line-through">TUESDAY FEB 25, 2025 - 6-8PM</p>
+                    <p className="text-black mb-1 line-through">ANGUS GLEN LIBRARY</p>
+                    <p className="text-black mb-4 line-through">ROOM G&H</p>
+                    <p className="text-red-600 font-bold text-base">UPDATE: Billy Pang has refused to meet with us.</p>
+                    <p className="text-black font-bold text-sm mt-4">HOW WILL THEY ADVOCATE FOR YOU, IF THEY WON'T EVEN ADVOCATE FOR THEMSELVES?</p>
                   </div>
 
                   {/* Mobile Advance Polling Card */}
@@ -255,12 +258,12 @@ function App() {
             <div className="hidden lg:block w-[40rem] space-y-4">
               {/* Debate Card */}
               <div className="w-full bg-yellow-400 rounded-2xl p-8 border border-yellow-500 shadow-xl text-center">
-                <h4 className="text-black font-bold text-3xl mb-3 whitespace-nowrap">LIBERAL vs CONSERVATIVE DEBATE</h4>
-                <p className="text-black font-medium text-xl mb-1">TUESDAY FEB 25, 2025 - 6-8PM</p>
-                <p className="text-black text-lg mb-1">ANGUS GLEN LIBRARY</p>
-                <p className="text-black text-lg mb-4">ROOM G&H</p>
-                <p className="text-black font-bold text-lg">THE CONSERVATIVE CAMPAIGN HAS BEEN INVITED, BUT WILL THEY SHOW UP?</p>
-                <p className="text-black font-bold text-lg mt-2">HOW WILL THEY ADVOCATE FOR YOU, IF THEY WON'T EVEN ADVOCATE FOR THEMSELVES?</p>
+                <h4 className="text-black font-bold text-3xl mb-6 whitespace-nowrap">LIBERAL vs CONSERVATIVE DEBATE</h4>
+                <p className="text-black font-medium text-xl mb-1 line-through">TUESDAY FEB 25, 2025 - 6-8PM</p>
+                <p className="text-black text-lg mb-1 line-through">ANGUS GLEN LIBRARY</p>
+                <p className="text-black text-lg mb-6 line-through">ROOM G&H</p>
+                <p className="text-red-600 font-bold text-2xl mb-6">UPDATE: Billy Pang has refused to meet with us.</p>
+                <p className="text-black font-bold text-lg">HOW WILL THEY ADVOCATE FOR YOU, IF THEY WON'T EVEN ADVOCATE FOR THEMSELVES?</p>
               </div>
 
               {/* Advance Polling Card */}
