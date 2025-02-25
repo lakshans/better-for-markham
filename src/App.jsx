@@ -14,6 +14,24 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  // Track initial pageview
+  useEffect(() => {
+    ReactGA.send({ 
+      hitType: "pageview", 
+      page: "/", 
+      title: "User visited" 
+    });
+  }, []);
+
+  // Track section changes
+  useEffect(() => {
+    ReactGA.send({ 
+      hitType: "pageview", 
+      page: `/${activeSection}`, 
+      title: `${activeSection.charAt(0).toUpperCase() + activeSection.slice(1)} - Jagbir Dosanjh for Ontario` 
+    });
+  }, [activeSection]);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
